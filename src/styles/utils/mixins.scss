@@ -1,0 +1,25 @@
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  grid-template-rows: repeat(2, 50%);
+
+  @include onTablet() {
+    grid-template-rows: repeat(2, 50%);
+  }
+
+  @include onDesktop() {
+    grid-template-rows: none;
+    grid-template-columns: repeat(2, 50%);
+  }
+}
